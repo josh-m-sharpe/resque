@@ -23,6 +23,8 @@ require 'resque/thread_signal'
 
 require 'resque/vendor/utf8_util'
 
+require 'resque/railtie' if defined?(Rails)
+
 module Resque
   include Helpers
   extend self
@@ -648,3 +650,4 @@ end
 # Log to STDOUT by default
 Resque.logger           = MonoLogger.new(STDOUT)
 Resque.logger.formatter = Resque::QuietFormatter.new
+
